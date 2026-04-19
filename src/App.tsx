@@ -32,7 +32,7 @@ function App() {
 	return (
 		<div className="px-4">
 			<Navbar user={user} />
-			<main className="container mx-auto max-w-3xl">
+			<main className="container mx-auto max-w-3xl min-h-72">
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/yarns" element={<Yarns user={user} />} />
