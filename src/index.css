@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@theme {
+	--font-script: "Pacifico";
+}
+
+@layer base {
+	html {
+		background-color: var(--color-gray-100);
+		scroll-behavior: smooth;
+	}
+	.script {
+		font-family: var(--font-script);
+	}
+	h1:not(.nav-brand h1) {
+		@apply text-5xl font-bold mb-8;
+	}
+	.nav-brand h1 {
+		@apply text-lime-800 font-script;
+	}
+	h2 {
+		@apply text-xl font-bold;
+	}
+	h3 {
+		@apply text-lg font-bold;
+	}
+
+	a {
+		@apply text-lime-800 hover:text-lime-600 cursor-pointer;
+	}
+
+	.btn {
+		@apply bg-gray-200 text-gray-600 hover:bg-gray-300 border-0 cursor-pointer p-3 rounded-sm text-sm/1 transition-all;
+	}
+
+	.btn-lg {
+		@apply p-3 text-base;
+	}
+
+	.btn-transparent {
+		@apply bg-transparent hover:bg-transparent p-0;
+	}
+
+	.btn-primary {
+		@apply bg-lime-800 text-white  hover:bg-lime-600 hover:text-white;
+	}
+
+	.btn-danger {
+		@apply bg-red-600 text-white hover:bg-red-900;
+	}
+
+	.btn-filter {
+		@apply bg-transparent hover:bg-lime-800/20 hover:text-lime-800 text-sm px-1 py-0;
+	}
+
+	.btn-filter.active {
+		@apply bg-lime-800/20  text-lime-800 text-sm px-1 py-0;
+	}
+
+	.card {
+		@apply bg-white rounded-lg p-4 shadow-sm;
+	}
+
+	.yarn-icon {
+		font-size: var(--text-4xl);
+		width: 2.25rem;
+		height: 2.25rem;
+		line-height: 2.25rem;
+		border-radius: 50%;
+		font-size: 1rem;
+		color: #fff;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	.yarn-red {
+		@apply bg-red-800;
+	}
+	.yarn-orange {
+		@apply bg-orange-800;
+	}
+	.yarn-yellow {
+		@apply bg-yellow-600;
+	}
+	.yarn-green {
+		@apply bg-lime-700;
+	}
+	.yarn-blue {
+		@apply bg-blue-800;
+	}
+	.yarn-purple {
+		@apply bg-purple-800;
+	}
+	.yarn-pink {
+		@apply bg-pink-400;
+	}
+	.yarn-black {
+		@apply bg-black;
+	}
+	.yarn-white {
+		@apply text-gray-500 outline-2 outline-gray-400;
+	}
+	.yarn-gray {
+		@apply bg-gray-500;
+	}
+	.yarn-brown {
+		@apply bg-amber-950;
+	}
+	.yarn-multi {
+		background: linear-gradient(in oklch 0deg, #ffea00 0%, #0151ff 50%, #f90000 100%);
+	}
+}
