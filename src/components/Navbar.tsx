@@ -21,7 +21,7 @@ function Navbar({ user }: NavbarProps) {
 						<h1 className="text-2xl md:text-5xl">The Yarn Store</h1>
 					</div>
 				</Link>
-				<div className="nav-links flex items-end gap-3 font-bold">
+				<div className="nav-links flex flex-row items-end gap-3 font-bold max-[350px]:flex-col max-[350px]:gap-0">
 					<Link to="/">Home</Link>
 					<Link to="/yarns">Yarns</Link>
 					{user ? (
@@ -32,10 +32,10 @@ function Navbar({ user }: NavbarProps) {
 						</>
 					) : (
 						<>
-							<Link className="whitespace-nowrap" to="/signin">
+							<Link className="whitespace-nowrap max-[375px]:hidden" to="/signin">
 								Sign In
 							</Link>
-							<Link className="whitespace-nowrap" to="/signup">
+							<Link className="whitespace-nowrap max-[375px]:hidden" to="/signup">
 								Sign Up
 							</Link>
 						</>

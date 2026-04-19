@@ -52,11 +52,11 @@ function YarnForm({ yarn, onSave, onCancel }: YarnFormProps) {
 	}
 
 	return (
-		<div className="form-container max-w-lg">
+		<div className="form-container max-w-lg my-8">
 			{error && <p className="error-message">{error}</p>}
 
 			<form onSubmit={handleSubmit}>
-				<div className="flex gap-2 mb-2">
+				<div className="flex gap-2 mb-2 flex-col justify-center items-center md:flex-row md:justify-start">
 					<div className="form-group flex flex-col">
 						<label htmlFor="brand">Brand</label>
 						<input className="form-input rounded-sm border-gray-300" id="brand" type="text" value={brand} onChange={(e) => setBrand(e.target.value)} required />
@@ -65,13 +65,12 @@ function YarnForm({ yarn, onSave, onCancel }: YarnFormProps) {
 						<label htmlFor="name">Yarn Name</label>
 						<input className="form-input rounded-sm border-gray-300" id="name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
 					</div>
-
 					<div className="form-group flex flex-col">
 						<label htmlFor="fiber">Primary Fiber</label>
 						<input className="form-input rounded-sm border-gray-300" id="fiber" type="text" value={fiber} onChange={(e) => setFiber(e.target.value)} required />
 					</div>
 				</div>
-				<div className="flex gap-5">
+				<div className="flex gap-5 flex-col justify-center items-center md:flex-row md:justify-start">
 					<div className="form-group">
 						<label htmlFor="weight">Weight</label>
 						<select className="form-select border-gray-300 rounded-sm ml-1" id="weight" value={weight} onChange={(e) => setWeight(e.target.value as Weight)}>
@@ -94,7 +93,7 @@ function YarnForm({ yarn, onSave, onCancel }: YarnFormProps) {
 					</div>
 				</div>
 
-				<div className="form-actions flex gap-3 mt-4">
+				<div className="form-actions flex gap-3 mt-4 flex-row justify-center md:justify-start">
 					<button type="submit" className="btn btn-primary btn-lg">
 						{yarn ? "Save Changes" : "Add Yarn"}
 					</button>

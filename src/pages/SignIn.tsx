@@ -49,13 +49,14 @@ function SignIn() {
 					<input className="form-input rounded-sm border-gray-300" id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
 				</div>
 
-				<div className="form-actions flex gap-3 mt-4 justify-between">
+				<div className="form-actions flex gap-3 mt-4 justify-between items-start">
 					<button type="submit" className="btn btn-primary" disabled={loading}>
 						{loading ? "Signing in..." : "Sign In"}
 					</button>
-					<p className="auth-switch">
-						Don't have an account? <Link to="/signup">Sign Up</Link>
-					</p>
+					<div className="flex flex-col md:flex-row md:gap-2 text-right">
+						<p className="auth-switch">Don't have an account?</p>
+						<Link to="/signup">Sign Up</Link>
+					</div>
 				</div>
 			</form>
 		</div>

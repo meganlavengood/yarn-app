@@ -1,3 +1,5 @@
-# Yarn App for IT 431
+# Project 2: Yarn App
 
-This is a final project for IT 431.
+Megan Lavengood • IT 431 • Spring 2026
+
+---

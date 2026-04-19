@@ -164,7 +164,7 @@ function Yarns({ user }: YarnsProps) {
 				<h1>Yarn Inventory</h1>
 				{/* Only show Add button if user is signed in */}
 				{user && !(showForm || editingYarn) && (
-					<button onClick={() => setShowForm(true)} className="btn btn-primary btn-lg">
+					<button onClick={() => setShowForm(true)} className="btn btn-primary btn-lg block mx-auto">
 						+ Add New
 					</button>
 				)}
@@ -179,9 +179,9 @@ function Yarns({ user }: YarnsProps) {
 					}}
 				/>
 			)}
-			<div className="filter-bar flex gap-3 my-4 mx-auto card px-4 py-2">
-				<div className="flex gap-2 items-center">
-					Filter by:
+			<div className="filter-bar flex md:flex-row flex-col justify-between items-center gap-3 my-4 mx-auto card px-4 py-2">
+				<div className="font-bold">Filter</div>
+				<div className="flex flex-row gap-2 justify-center flex-wrap sm:flex-nowrap">
 					{weightFilters.map((filter) => (
 						<button key={filter} className={`text-base btn btn-filter ${activeFilter === filter ? "active" : ""}`} onClick={() => setActiveFilter(filter)}>
 							{weightFilterPrefixes[filter]}
