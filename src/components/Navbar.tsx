@@ -26,14 +26,18 @@ function Navbar({ user }: NavbarProps) {
 					<Link to="/yarns">Yarns</Link>
 					{user ? (
 						<>
-							<a className="" onClick={handleSignOut}>
+							<a className="whitespace-nowrap" onClick={handleSignOut}>
 								Sign Out
 							</a>
 						</>
 					) : (
 						<>
-							<Link to="/signin">Sign In</Link>
-							<Link to="/signup">Sign Up</Link>
+							<Link className="whitespace-nowrap" to="/signin">
+								Sign In
+							</Link>
+							<Link className="whitespace-nowrap" to="/signup">
+								Sign Up
+							</Link>
 						</>
 					)}
 				</div>

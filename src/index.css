@@ -31,6 +31,10 @@
 		@apply text-lime-800 hover:text-lime-600 cursor-pointer;
 	}
 
+	.footer a {
+		@apply opacity-75;
+	}
+
 	.btn {
 		@apply bg-gray-200 text-gray-600 hover:bg-gray-300 border-0 cursor-pointer p-3 rounded-sm text-sm/1 transition-all;
 	}

@@ -12,24 +12,18 @@ function Footer({ user }: FooterProps) {
 	}
 
 	return (
-		<div className="footer py-8 flex justify-end text-gray-600">
+		<div className="footer py-8 flex flex-col gap-5 flex-row justify-center text-sm text-gray-500">
 			{user ? (
-				<p>
-					Currently logged in as {`${user.email}`}
-					<a className="ml-5" onClick={handleSignOut}>
-						Sign Out
-					</a>
-				</p>
+				<>
+					<p>Currently logged in as {`${user.email}`}</p>
+					<a onClick={handleSignOut}>Sign Out</a>
+				</>
 			) : (
-				<p>
-					Not logged in. Sign in to access admin features.
-					<Link to="/signin" className="ml-5">
-						Sign In
-					</Link>
-					<Link to="/signup" className="ml-5">
-						Sign Up
-					</Link>
-				</p>
+				<>
+					<p>
+						Not logged in. <Link to="/signin">Sign in</Link> or <Link to="/signup">sign up</Link> to access admin features.
+					</p>
+				</>
 			)}
 		</div>
 	);
