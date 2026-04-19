@@ -17,7 +17,7 @@ function Navbar({ user }: NavbarProps) {
 			<nav className="navbar flex items-end justify-between">
 				<Link to="/">
 					<div className="nav-brand flex items-end flex-nowrap">
-						<img src="{headerImg}" className="size-1/8" />
+						<img src={`${headerImg}`} className="size-1/8" />
 						<h1 className="text-2xl md:text-5xl">The Yarn Store</h1>
 					</div>
 				</Link>
