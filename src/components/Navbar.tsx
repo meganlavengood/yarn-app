@@ -24,6 +24,7 @@ function Navbar({ user }: NavbarProps) {
 				<div className="nav-links flex flex-row items-end gap-3 font-bold max-[350px]:flex-col max-[350px]:gap-0">
 					<Link to="/">Home</Link>
 					<Link to="/yarns">Yarns</Link>
+					{/* if logged in, show sign-out link; otherwise, show sign in and sign up */}
 					{user ? (
 						<>
 							<a className="whitespace-nowrap" onClick={handleSignOut}>

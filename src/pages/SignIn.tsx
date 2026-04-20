@@ -14,10 +14,6 @@ function SignIn() {
 		setError("");
 		setLoading(true);
 
-		// TODO: Sign in with Supabase Auth.
-		// This code is ready to go — just make sure your Supabase project
-		// has email auth enabled (it is by default).
-
 		const { error } = await supabase.auth.signInWithPassword({
 			email,
 			password,

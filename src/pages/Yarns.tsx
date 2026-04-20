@@ -6,7 +6,6 @@ import YarnForm from "../components/YarnForm";
 // import YarnItem from "../components/YarnItem";
 
 interface YarnsProps {
-	// yarns: Yarn[];
 	user: User | null;
 }
 
@@ -66,10 +65,8 @@ function Yarns({ user }: YarnsProps) {
 		setLoading(true);
 		setError("");
 
-		// TODO: Fetch yarns from your Supabase table.
-		// Replace 'yarns' with your actual table name.
-		//
-		const { data, error } = await supabase.from("yarns").select("*").order("created_at", { ascending: false });
+		// fetch yarns and sort by updated_at
+		const { data, error } = await supabase.from("yarns").select("*").order("updated_at", { ascending: false });
 
 		if (error) {
 			setError("Failed to load yarns: " + error.message);
@@ -81,8 +78,7 @@ function Yarns({ user }: YarnsProps) {
 	}
 
 	async function handleAdd(data: Partial<Yarn>) {
-		// TODO: Insert a new yarn into your Supabase table.
-		//
+		// add new yarn to the database
 		const { error } = await supabase.from("yarns").insert([{ ...data, user_id: user?.id }]);
 
 		if (error) {
@@ -90,8 +86,10 @@ function Yarns({ user }: YarnsProps) {
 			return;
 		}
 
+		// hide form
 		setShowForm(false);
-		fetchYarns(); // Refresh the list
+		// Refresh the list
+		fetchYarns();
 
 		console.log("Add yarn:", data);
 	}
@@ -99,7 +97,11 @@ function Yarns({ user }: YarnsProps) {
 	async function handleEdit(data: Partial<Yarn>) {
 		if (!editingYarn) return;
 
-		const { error } = await supabase.from("yarns").update(data).eq("id", editingYarn.id);
+		// set updated_at date and add to yarn data
+		const d = new Date(Date.now());
+		const updata = { ...data, updated_at: d.toISOString() };
+
+		const { error } = await supabase.from("yarns").update(updata).eq("id", editingYarn.id);
 
 		if (error) {
 			alert("Failed to update yarn: " + error.message);
@@ -113,13 +115,12 @@ function Yarns({ user }: YarnsProps) {
 	}
 
 	async function handleDelete(id: number) {
-		// TODO: Delete a yarn from your Supabase table.
-		// IMPORTANT: Show a confirmation dialog first!
-		//
+		// confirm dialog
 		if (!window.confirm("Are you sure you want to delete this item?")) {
 			return;
 		}
 
+		// delete yarn
 		const { error } = await supabase.from("yarns").delete().eq("id", id);
 
 		if (error) {
@@ -133,7 +134,7 @@ function Yarns({ user }: YarnsProps) {
 	}
 
 	const [activeFilter, setActiveFilter] = useState<"all" | Weight>("all");
-	// If "all" is selected, we use the full array. Otherwise, .filter() array with only yarns whose weight matches the active filter.
+	// If "all" is selected, show full array. Otherwise, .filter() array with only yarns whose weight matches the active filter.
 	const filteredYarns = activeFilter === "all" ? yarns : yarns.filter((t) => t.weight === activeFilter);
 
 	if (loading) {
@@ -144,31 +145,20 @@ function Yarns({ user }: YarnsProps) {
 		return <p className="error-message">{error}</p>;
 	}
 
-	// Show the form if adding or editing
-	// if (showForm || editingYarn) {
-	// 	return (
-	// 		<YarnForm
-	// 			yarn={editingYarn}
-	// 			onSave={editingYarn ? handleEdit : handleAdd}
-	// 			onCancel={() => {
-	// 				setShowForm(false);
-	// 				setEditingYarn(null);
-	// 			}}
-	// 		/>
-	// 	);
-	// }
-
 	return (
 		<div className="yarns-page">
 			<div className="yarns-header">
 				<h1>Yarn Inventory</h1>
-				{/* Only show Add button if user is signed in */}
+
+				{/* Only show Add button if user is signed in and not currently editing */}
 				{user && !(showForm || editingYarn) && (
 					<button onClick={() => setShowForm(true)} className="btn btn-primary btn-lg block mx-auto">
 						+ Add New
 					</button>
 				)}
 			</div>
+
+			{/* show form if in edit mode */}
 			{(showForm || editingYarn) && (
 				<YarnForm
 					yarn={editingYarn}
@@ -179,6 +169,8 @@ function Yarns({ user }: YarnsProps) {
 					}}
 				/>
 			)}
+
+			{/* filter bar */}
 			<div className="filter-bar flex md:flex-row flex-col justify-between items-center gap-3 my-4 mx-auto card px-4 py-2">
 				<div className="font-bold">Filter</div>
 				<div className="flex flex-row gap-2 justify-center flex-wrap sm:flex-nowrap">
@@ -191,15 +183,18 @@ function Yarns({ user }: YarnsProps) {
 				</div>
 			</div>
 
+			{/* if no yarns are added, show message confirming empty */}
 			{filteredYarns.length === 0 ? (
-				<p className="empty-state">No yarns yet. Be the first to add one!</p>
+				<p className="empty-state">No yarns yet.</p>
 			) : (
 				<div className="yarn-list flex flex-col gap-2">
+					{/* display each yarn as follows */}
 					{filteredYarns.map((yarn) => (
 						<div key={yarn.id} className="yarn-item flex items-center justify-between card">
 							<div className="yarn-info flex items-center gap-5">
 								{
-									<div title={`${yarn.weight} weight, ${yarn.color}`} className={`yarn-icon ${colorClasses[yarn.color]}`}>
+									// color/weight icon
+									<div title={`${yarn.weight} weight, ${yarn.color}`} className={`min-w-9 yarn-icon ${colorClasses[yarn.color]}`}>
 										{weightNumbers[yarn.weight]}
 									</div>
 								}

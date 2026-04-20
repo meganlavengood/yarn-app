@@ -14,7 +14,6 @@ const colors: Color[] = ["red", "orange", "yellow", "green", "blue", "purple", "
 function YarnForm({ yarn, onSave, onCancel }: YarnFormProps) {
 	// If editing (yarn is not null), initialize with the existing values.
 	// If adding (yarn is null), initialize with empty/default values.
-
 	const [brand, setBrand] = useState(yarn?.brand ?? "");
 	const [name, setName] = useState(yarn?.name ?? "");
 	const [color, setColor] = useState<Color>(yarn?.color ?? "white");

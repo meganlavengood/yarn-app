@@ -13,6 +13,7 @@ function Footer({ user }: FooterProps) {
 
 	return (
 		<div className="footer py-8 flex flex-col md:flex-row md:gap-2 justify-center text-center text-sm text-gray-500">
+			{/* if logged in, show sign-out link; otherwise, show sign in and sign up */}
 			{user ? (
 				<>
 					<p>Currently logged in as {`${user.email}`}</p>
