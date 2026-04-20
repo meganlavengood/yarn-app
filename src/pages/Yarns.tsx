@@ -138,7 +138,7 @@ function Yarns({ user }: YarnsProps) {
 	const filteredYarns = activeFilter === "all" ? yarns : yarns.filter((t) => t.weight === activeFilter);
 
 	if (loading) {
-		return <p className="loading">Loading yarns...</p>;
+		return <div className="loader"></div>;
 	}
 
 	if (error) {
@@ -149,7 +149,6 @@ function Yarns({ user }: YarnsProps) {
 		<div className="yarns-page">
 			<div className="yarns-header">
 				<h1>Yarn Inventory</h1>
-
 				{/* Only show Add button if user is signed in and not currently editing */}
 				{user && !(showForm || editingYarn) && (
 					<button onClick={() => setShowForm(true)} className="btn btn-primary btn-lg block mx-auto">
