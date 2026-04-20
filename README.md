@@ -10,11 +10,11 @@ Megan Lavengood • IT 431 • Spring 2026
 
 - [Description](#description)
 - [Screenshots](#screenshots)
-    - [Home](#home)
-    - [Product view (anonymous viewer)](#product-view-anonymous-viewer)
-    - [Product view (authenticated user)](#product-view-authenticated-user)
-    - [Add/Edit form (authenticated user)](#addedit-form-authenticated-user)
-    - [Supabase screenshot RLS](#supabase-screenshot-rls)
+  - [Home](#home)
+  - [Product view (anonymous viewer)](#product-view-anonymous-viewer)
+  - [Product view (authenticated user)](#product-view-authenticated-user)
+  - [Add/Edit form (authenticated user)](#addedit-form-authenticated-user)
+  - [Supabase screenshot RLS](#supabase-screenshot-rls)
 
 ---
 
@@ -26,6 +26,7 @@ I decided to use the React Router template. Once I had the template it was easy 
 
 1. I wanted the new yarn form to appear on the page without hiding the yarn list
 2. I added a footer and put the email display down there.
+3. I added an `updated_at` field and sorted the list by that, so that when a yarn is edited it pops to the top of the list. This makes it easier to see the changes.
 
 For styling, I experimented with Tailwind CSS for the first time ever. Some aspects of it are definitely nice but I missed some of the built-in styling that comes with Bootstrap. I put some hours into styling and making the responsive aspects work well so I hope that's appreciated! I get really into UI design.
 
