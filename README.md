@@ -14,7 +14,7 @@ Megan Lavengood • IT 431 • Spring 2026
   - [Product view (anonymous viewer)](#product-view-anonymous-viewer)
   - [Product view (authenticated user)](#product-view-authenticated-user)
   - [Add/Edit form (authenticated user)](#addedit-form-authenticated-user)
-  - [Supabase screenshot RLS](#supabase-screenshot-rls)
+  - [Supabase screenshot RLS (anonymous users can view; users must be authenticated to edit/add/delete)](#supabase-screenshot-rls-anonymous-users-can-view-users-must-be-authenticated-to-editadddelete)
 
 ---
 
@@ -48,6 +48,6 @@ For styling, I experimented with Tailwind CSS for the first time ever. Some aspe
 
 ![](./screenshots/inv-add.png)
 
-### Supabase screenshot RLS
+### Supabase screenshot RLS (anonymous users can view; users must be authenticated to edit/add/delete)
 
 ![](./screenshots/supabase.png)
