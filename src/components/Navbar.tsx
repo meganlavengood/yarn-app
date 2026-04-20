@@ -17,11 +17,11 @@ function Navbar({ user }: NavbarProps) {
 			<nav className="navbar flex items-end justify-between">
 				<Link to="/">
 					<div className="nav-brand flex items-end flex-nowrap">
-						<img src={`${headerImg}`} className="size-1/8" />
-						<h1 className="text-2xl md:text-5xl">The Yarn Store</h1>
+						<img src={`${headerImg}`} className="size-10 md:size-1/8" />
+						<h1 className="text-2xl md:text-5xl whitespace-nowrap">The Yarn Store</h1>
 					</div>
 				</Link>
-				<div className="nav-links flex flex-row items-end gap-3 font-bold max-[350px]:flex-col max-[350px]:gap-0">
+				<div className="nav-links flex flex-row items-end gap-3 font-bold max-[450px]:flex-col max-[450px]:gap-0">
 					<Link to="/">Home</Link>
 					<Link to="/yarns">Yarns</Link>
 					{/* if logged in, show sign-out link; otherwise, show sign in and sign up */}
